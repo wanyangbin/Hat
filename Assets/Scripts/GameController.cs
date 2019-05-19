@@ -11,7 +11,9 @@ public class GameController : MonoBehaviour
     public float time;
     private GameObject newball;
     private GameObject newbomb;
-    
+
+    public GameObject[] FishPrefab;
+
     void Start()
     {
         Vector3 screenPos = new Vector3(Screen.width, 0, 0);
@@ -31,7 +33,8 @@ public class GameController : MonoBehaviour
             time = Random.Range(1.0f, 1.5f);
             float posX = Random.Range(-maxWidth, maxWidth);
             Vector3 spawnPosition = new Vector3(posX, 5, 0);
-            newball = (GameObject)Instantiate(ball, spawnPosition, Quaternion.identity);
+           // newball = (GameObject)Instantiate(FishPrefab, spawnPosition, Quaternion.identity);
+            newball=Instantiate(FishPrefab[Random.Range(0, FishPrefab.Length)], new Vector3(posX, 5, 0), Quaternion.identity);
             Destroy(newball, 10);
         }
     }
@@ -40,7 +43,7 @@ public class GameController : MonoBehaviour
         time -= Time.deltaTime;
         if (time < 0)
         {
-            time = Random.Range(1.0f, 1.5f);
+            time = Random.Range(1.5f, 2.0f);
             float bombX = Random.Range(-maxWidth, maxWidth);
             Vector3 bombPosition = new Vector3(bombX, 5, 0);
             newbomb = (GameObject)Instantiate(bomb, bombPosition, Quaternion.identity);
