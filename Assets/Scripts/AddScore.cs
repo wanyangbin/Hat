@@ -13,8 +13,13 @@ public class AddScore : MonoBehaviour
     public Text LiftNumber;
     public GameObject Three;
     public GameObject Two;
-    
-   
+
+    public AudioClip Add;
+
+    public AudioClip Boom;
+
+
+
     void OnTriggerEnter2D(Collider2D coll)
     {
         
@@ -22,12 +27,15 @@ public class AddScore : MonoBehaviour
         {
             Score++;
             ScoreNumber.text=Score.ToString();
+            AudioSource.PlayClipAtPoint(Add, transform.position);
+         
         }
         if (coll.name.StartsWith("bomb"))
         {
 
             Lift--;
             LiftNumber.text = Lift.ToString();
+            AudioSource.PlayClipAtPoint(Boom, transform.position);
             if (Lift == 2|| Lift==1 )
             {
                 Three.SetActive(false);

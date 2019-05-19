@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
         {
             time = Random.Range(1.0f, 1.5f);
             float posX = Random.Range(-maxWidth, maxWidth);
-            Vector3 spawnPosition = new Vector3(posX, 3, 0);
+            Vector3 spawnPosition = new Vector3(posX, 5, 0);
             newball = (GameObject)Instantiate(ball, spawnPosition, Quaternion.identity);
             Destroy(newball, 10);
         }
@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
         {
             time = Random.Range(1.0f, 1.5f);
             float bombX = Random.Range(-maxWidth, maxWidth);
-            Vector3 bombPosition = new Vector3(bombX, 3, 0);
+            Vector3 bombPosition = new Vector3(bombX, 5, 0);
             newbomb = (GameObject)Instantiate(bomb, bombPosition, Quaternion.identity);
             Destroy(newbomb, 10);
         }
